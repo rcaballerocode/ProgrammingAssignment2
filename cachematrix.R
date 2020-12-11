@@ -34,15 +34,19 @@ makeCacheMatrix <- function(m = matrix()) {
 cacheSolve <- function(x, ...) {
   mtx_inverse <- x$getInverse()
   
+  ## Just return the inverse if its already set
   if (!is.null(mtx_inverse)) {
     message("getting cached data")
     return(mtx_inverse)
   }
   
+  ## Get the matrix
   matrix <- x$get()
   
+  ## Calculate the inverse using matrix multiplication
   inverse_cal <- solve(matrix) %*% matrix
   
+  ## Set the inverse of the matrix
   x$setInverse(inverse_cal)
   
   inverse_cal

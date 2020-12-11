@@ -44,7 +44,7 @@ cacheSolve <- function(x, ...) {
   matrix <- x$get()
   
   ## Calculate the inverse of the matrix
-  inverse_cal <- solve(matrix)
+  inverse_cal <- solve(matrix, ...)
   
   ## Set the inverse of the matrix
   x$setInverse(inverse_cal)
